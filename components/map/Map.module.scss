@@ -1,0 +1,24 @@
+.map {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 95vw;
+  max-width: 700px;
+}
+
+.map > * {
+  max-width: 100%;
+}
+
+.top {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 40px;
+}
+
+.map img {
+  min-height: 0;
+  min-width: 0;
+}
+

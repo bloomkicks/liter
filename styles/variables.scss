@@ -1,0 +1,13 @@
+$theme: #060411;
+$bg: #ffffff;
+$text: #000;
+
+$extra-large: 56px;
+$large: 48px;
+$medium: 40px;
+$body: 32px;
+
+@mixin header {
+  font-weight: bold;
+  font-family: Rubik, Roboto, sans-serif;
+}

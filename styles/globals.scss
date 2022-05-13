@@ -1,0 +1,35 @@
+@import "./variables.scss";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  @include header;
+  margin-bottom: 30px;
+}
+
+h1 {
+  font-size: $extra-large;
+}
+h2 {
+  font-size: $large;
+}
+h3 {
+  font-size: $medium;
+}
+
+html,
+body {
+  font-family: Roboto, Rubik, -apple-system, BlinkMacSystemFont, Segoe UI,
+    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+    sans-serif;
+  font-size: $body;
+  color: $text;
+}
+
