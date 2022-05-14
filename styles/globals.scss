@@ -33,3 +33,7 @@ body {
   color: $text;
 }
 
+img {
+  min-width: 0;
+  min-height: 0;
+}

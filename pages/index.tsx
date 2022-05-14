@@ -5,12 +5,24 @@ import Map from "../components/map/Map";
 import Memos from "../components/memos/Memos";
 import Photos from "../components/photos/Photos";
 
+const translation = {
+  kitchen: "Столовая",
+  wife: "Комната Жены",
+  bedroom: "Спальня",
+  office: "Кабинет Блока",
+  exponts: "Экспонаты",
+};
+
 const Home: NextPage = () => {
-  const roomState = useSelector((state) => state.room);
+  const roomState = useSelector<{room: {current: string | null}}, {current: string | null}>((state) => state.room);
 
   return (
     <main className={classes.main}>
-      <h1>Квартира-Музей А. Блока</h1>
+      <h1>
+        {roomState.current
+          ? translation[roomState.current]
+          : "Квартира А. Блока"}
+      </h1>
       <Map />
       {roomState.current && (
         <>

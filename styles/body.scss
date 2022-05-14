@@ -13,6 +13,16 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
   align-items: flex-start;
+}
+
+body > * {
+  width: 100%;
+}
+
+@media screen and (max-width: 750px) {
+  body {
+    flex-direction: column;
+    align-items: center;
+  }
 }

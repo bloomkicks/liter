@@ -1,9 +1,19 @@
-import classes from './Memos.module.scss'
+import classes from "./Memos.module.scss";
+import storage from "../../store/storage";
+import Memo from "./Memo";
 
-const Memos = (props: {id: string}) => {
-    return (
-        <section><h1>{props.id} Memos</h1></section>
-    )
-}
+const Memos = (props: {id: string }) => {
+  const memos = storage[props.id as keyof typeof storage].memos;
 
-export default Memos
+  console.log(memos);
+
+  return (
+    <section>
+      {memos.map((memo) => (
+        <Memo title={memo.title} key={Math.random()} text={memo.text} image={memo.image} />
+      ))}
+    </section>
+  );
+};
+
+export default Memos;

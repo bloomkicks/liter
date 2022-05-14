@@ -2,7 +2,7 @@ import { configureStore, createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit';
 
 
-let initialState: { current: (string | null) } = { current: null }
+let initialState: { current: string | null} = { current: null }
 
 const roomSlice = createSlice({
   name: "room",

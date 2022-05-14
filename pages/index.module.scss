@@ -1,11 +1,21 @@
+@use "../styles/variables" as *;
+
 .main {
+  width: 100%;
   max-width: 1366px;
   height: 100%;
   margin: auto;
-  padding: 10px 20px;
+  padding-top: 70px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
 
-.main > img {
-    height: 600px;
-    max-height: 100%;
+.main > h1 {
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
 }

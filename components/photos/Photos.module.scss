@@ -1,0 +1,15 @@
+.photos {
+    width: 42.5vw;
+    margin-left: 7.5px;
+}
+
+.photos > img {
+    width: 100%;
+}
+
+.photos > img:nth-last-child(2):nth-child(1),
+.photos > img:nth-last-child(1):nth-child(2) {
+    width: 85%;
+    height: auto;
+    margin-bottom: 10px;
+}
