@@ -1,15 +1,45 @@
 .photos {
-    width: 42.5vw;
-    margin-left: 7.5px;
+  width: 40vw;
+  max-width: 500px;
+  margin: 0 7.5px;
+  transform: translateY(-30%);
+}
+
+.entering {
+  animation: movein 0.43s ease-in-out 0s 1 forwards;
+}
+
+.entered {
+  transform: translateY(0);
+}
+
+@keyframes movein {
+  from {
+    transform: translateY(-30%);
+  }
+  70% {
+    transform: translateY(20px);
+  }
+  to {
+    transform: translateY(0);
+  }
 }
 
 .photos > img {
-    width: 100%;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
 }
 
 .photos > img:nth-last-child(2):nth-child(1),
 .photos > img:nth-last-child(1):nth-child(2) {
-    width: 85%;
-    height: auto;
-    margin-bottom: 10px;
+  width: 100%;
+  margin-bottom: 7.5px;
+}
+
+@media screen and (max-width: 750px) {
+  .photos {
+    margin-top: 15px;
+    width: 90vw;
+  }
 }

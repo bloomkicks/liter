@@ -8,7 +8,6 @@ body {
     adjust-color($bg, $lightness: +5) 80%
   );
   min-height: 100vh;
-  width: 100vw;
   text-align: center;
   display: flex;
   flex-direction: row;

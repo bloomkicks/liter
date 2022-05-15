@@ -1,9 +1,11 @@
+import { CSSTransition } from "react-transition-group";
 import type { NextPage } from "next";
 import { useSelector } from "react-redux";
 import classes from "./index.module.scss";
 import Map from "../components/map/Map";
 import Memos from "../components/memos/Memos";
 import Photos from "../components/photos/Photos";
+import { useState } from "react";
 
 const translation = {
   kitchen: "Столовая",
@@ -14,7 +16,10 @@ const translation = {
 };
 
 const Home: NextPage = () => {
-  const roomState = useSelector<{room: {current: string | null}}, {current: string | null}>((state) => state.room);
+  const roomState = useSelector<
+    { room: { current: string | null } },
+    { current: string | null }
+  >((state) => state.room);
 
   return (
     <main className={classes.main}>

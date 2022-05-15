@@ -1,44 +1,28 @@
+
 .memo {
-  margin: 15px auto;
-  margin-top: 25px;
+  margin: 12.5px 0;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-  width: 90%;
+  width: 100%;
+  border-top: 3px solid black;
+  border-bottom: 3px solid black;
+  padding: 0 15px;
 }
 
 .text {
-  display: inline-flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
   text-align: left;
-  padding: 10px;
-  margin-left: 15px;
-  width: 70%;
-  border: 3px solid black;
-  transform: translateY(10px);
-
-  h3 {
-    margin-bottom: 10px;
-  }
-  p {
-    display: inline;
-  }
+  padding: 15px 10px;
 }
 
-.memo > img,
-.space {
-  display: inline-block;
+.memo > img {
+  flex-shrink: 0;
   width: 25%;
-  height: auto;
+  min-height: 100%;
+  min-width: auto;
 }
 
-.vertical {
-  width: 10%;
-}
-
-.space {
-    height: 100%;
-  background-color: rgb(184, 179, 179);
+.memo > .vertical {
+  max-height: 40vh;
+  width: auto
 }

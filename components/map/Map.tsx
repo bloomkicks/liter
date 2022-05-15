@@ -1,27 +1,18 @@
 import { CSSTransition } from "react-transition-group";
-import { MouseEventHandler } from "react";
+import { MouseEventHandler, useState } from "react";
 import { useDispatch } from "react-redux";
 import { roomActions } from "../../store";
 import classes from "./Map.module.scss";
 
 let isClicked = false;
 
-const wife: "kitchen" | "bedroom" | "wife" | "exponts" | "office" | null =
-  "wife";
-const exponts: "kitchen" | "bedroom" | "wife" | "exponts" | "office" | null =
-  "exponts";
-const office: "kitchen" | "bedroom" | "wife" | "exponts" | "office" | null =
-  "office";
-const kitchen: "kitchen" | "bedroom" | "wife" | "exponts" | "office" | null =
-  "kitchen";
-const bedroom: "kitchen" | "bedroom" | "wife" | "exponts" | "office" | null =
-  "bedroom";
-
 const Map = () => {
+  const [selected, setSelected] = useState<string | null>(null)
   const dispatch = useDispatch();
 
   const selectHandler: MouseEventHandler<HTMLImageElement> = (e) => {
     const id = e.currentTarget.id;
+    setSelected(id)
     isClicked = true;
     dispatch(roomActions.select(id));
   };
@@ -36,39 +27,40 @@ const Map = () => {
         <div className={classes.top}>
           <img
             onClick={selectHandler}
-            id={wife}
+            id="wife"
             src="./wife.png"
             alt="Комната Жены"
-            className={classes.wife}
+            className={classes.wife + ` ${selected === "wife" && classes.selected || ''}`}
           />
           <img
             onClick={selectHandler}
             src="./kitchen.png"
-            id={kitchen}
+            id="kitchen"
             alt="Столовая"
-            className={classes.kitchen}
+            className={classes.kitchen + ` ${selected === "kitchen" && classes.selected || ''}`}
           />
           <img
             onClick={selectHandler}
             src="./bedroom.png"
-            id={bedroom}
+            id="bedroom"
             alt="Спальня"
-            className={classes.bedroom}
+            className={classes.bedroom + ` ${selected === "bedroom" && classes.selected || ''}`}
           />
           <img
             onClick={selectHandler}
             src="./office.png"
-            id={office}
+            id="office"
             alt="Кабинет Блока"
-            className={classes.office}
+            className={classes.office + ` ${selected === "office" && classes.selected || ''}`}
           />
         </div>
         <img
           onClick={selectHandler}
-          id={exponts}
+          id="exponts"
           src="./exponts.png"
           alt="Экспонаты"
-          className={classes.exponts}
+          style={{paddingTop: '1px'}}
+          className={classes.exponts + ` ${selected === "exponts" && classes.selected || ''}`}
         />
       </section>
     </CSSTransition>
