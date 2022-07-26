@@ -1,23 +1,25 @@
 import { CSSTransition } from "react-transition-group";
 import classes from "./Photos.module.scss";
-import storage from "../../store/storage";
+import rooms from "../../data/rooms";
 import { useEffect, useMemo, useState } from "react";
 
 const Photos = (props: { id: string }) => {
-  const images = storage[props.id as keyof typeof storage].photos;
-  const [toggle, setToggle] = useState<boolean>(false);
+  const images = rooms[props.id].photos;
+  const [animateIn, setAnimateIn] = useState<boolean>(false);
+  function animate(): void {
+    setAnimateIn((prev) => !prev);
+  }
 
   useEffect(() => {
-    setToggle((prev) => !prev);
+    animate();
   }, []);
   useMemo(() => {
-    setToggle((prev) => !prev);
-    return props.id;
+    animate();
   }, [props.id]);
 
   return (
     <CSSTransition
-      in={toggle}
+      in={animateIn}
       timeout={400}
       classNames={{
         enterActive: classes.entering,
@@ -29,9 +31,16 @@ const Photos = (props: { id: string }) => {
       <section className={classes.photos}>
         {images.map((image) =>
           image.src ? (
-            <img src={"./" + image.src} alt="" key={Math.random()} />
+            <img
+              src={"./" + image.src}
+              alt=""
+              key={Math.random()}
+            />
           ) : (
-            <div className={classes.space} key={Math.random()}></div>
+            <div
+              className={classes.space}
+              key={Math.random()}
+            ></div>
           )
         )}
       </section>

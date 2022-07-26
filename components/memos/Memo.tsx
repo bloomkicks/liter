@@ -1,8 +1,8 @@
-import type { Memory } from "../../store/storage";
+import type { Memory } from "../../models/TRoom";
 import classes from "./Memo.module.scss";
 
 const Memo = (props: Memory) => {
-  const image = props.image
+  const image = props.image;
 
   return (
     <div className={classes.memo}>

@@ -1,20 +1,6 @@
-export type Image = {
-    src: string;
-    vertical?: boolean;
-}
+import { Room } from "../models/TRoom"
 
-export type Memory = {
-    image?: Image,
-    title: string;
-    text: string
-}
-
-export type Room = {
-    memos: Memory[];
-    photos: Image[]
-}
-
-const storage = {
+const rooms: { [name: string]: Room } = {
     kitchen: {
         memos: [
             {
@@ -34,7 +20,7 @@ const storage = {
             {
                 title: "Двор Замка",
                 text: 'Эскиз декорации "Двор замка" работы М. В. Добужинского к постановке драмы "Роза и крест"',
-                image: null
+                image: undefined
             },
         ],
         photos: [
@@ -84,7 +70,7 @@ const storage = {
             {
                 title: "Произведения",
                 text: 'В этом кабинете А. А. Блок создавал почти все свои произведения 1912-1920 годов, в том числе стихотворные циклы "О чем поет ветер". "Жизнь моего приятеля", "Черная кровь"',
-                image: null
+                image: undefined
             }
         ],
         photos: [
@@ -130,4 +116,4 @@ const storage = {
     }
 }
 
-export default storage
+export default rooms

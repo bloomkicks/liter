@@ -1,26 +1,26 @@
 import { CSSTransition } from "react-transition-group";
 import { useEffect, useState, useMemo } from "react";
 import classes from "./Memos.module.scss";
-import storage from "../../store/storage";
+import rooms from "../../data/rooms";
 import Memo from "./Memo";
 
 const Memos = (props: { id: string }) => {
-  const memos = storage[props.id as keyof typeof storage].memos;
-  const [toggle, setToggle] = useState<boolean>(false);
+  const memos = rooms[props.id].memos;
+  const [animateIn, setAnimateIn] = useState<boolean>(false);
+  function animate(): void {
+    setAnimateIn((prev) => !prev);
+  }
 
   useEffect(() => {
-    setToggle((prev) => !prev);
+    animate();
   }, []);
   useMemo(() => {
-    setToggle((prev) => !prev);
-    return props.id;
+    animate();
   }, [props.id]);
-
-  console.log(memos);
 
   return (
     <CSSTransition
-      in={toggle}
+      in={animateIn}
       timeout={400}
       classNames={{
         enterActive: classes.entering,
@@ -33,7 +33,7 @@ const Memos = (props: { id: string }) => {
         {memos.map((memo) => (
           <Memo
             title={memo.title}
-            key={Math.random()}
+            key={memo.title + memo.image}
             text={memo.text}
             image={memo.image}
           />

@@ -25,6 +25,18 @@
   }
 }
 
+@keyframes movein-x {
+  from {
+    transform: translateX(-30%);
+  }
+  70% {
+    transform: translateX(20px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
 .photos > img {
   width: 100%;
   height: auto;
@@ -38,6 +50,9 @@
 }
 
 @media screen and (max-width: 750px) {
+  .entering {
+    animation: movein-x 0.43s ease-in-out 0s 1 forwards;
+  }
   .photos {
     margin-top: 15px;
     width: 90vw;
